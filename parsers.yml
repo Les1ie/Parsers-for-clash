@@ -197,7 +197,7 @@ parsers: # array
             - 🥷PROXY
                
       - name: 🇭🇰香港
-        type: url-test
+        type: select
         url: http://www.google.com/generate_204
         interval: 300
       
@@ -207,7 +207,7 @@ parsers: # array
         interval: 300
       
       - name: 🇯🇵日本
-        type: url-test
+        type: select
         url: http://www.google.com/generate_204
         interval: 300
       
@@ -306,6 +306,7 @@ parsers: # array
         - GEOIP,CN,DIRECT
         - RULE-SET,direct,DIRECT
         - RULE-SET,proxy,🥷PROXY
+        - DOMAIN-SUFFIX,edu.cn,DIRECT # 🏫校园网直连
         - MATCH,👆SELECT # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“👆SELECT”选择代理或直连。
 
       # 添加规则集
