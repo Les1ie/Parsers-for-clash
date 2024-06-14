@@ -189,22 +189,6 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他
 
-      - name: 🐈GitHub
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
       - name: 🚦AD
         type: select
         proxies:
@@ -213,7 +197,7 @@ parsers: # array
             - 🥷PROXY
                
       - name: 🇭🇰香港
-        type: url-test
+        type: select
         url: http://www.google.com/generate_204
         interval: 300
       
@@ -223,7 +207,7 @@ parsers: # array
         interval: 300
       
       - name: 🇯🇵日本
-        type: url-test
+        type: select
         url: http://www.google.com/generate_204
         interval: 300
       
@@ -293,6 +277,12 @@ parsers: # array
         
   # 添加规则
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
+        # --- 自定义 ---
+        - DOMAIN-SUFFIX,edu.cn,DIRECT # 🏫校园网直连
+        - DOMAIN,cn.overleaf.com,DIRECT # 国内Overleaf
+        - DOMAIN-SUFFIX,deepl.com,DIRECT # DeepL 翻译/改写
+        - DOMAIN-SUFFIX,grammarly.com,DIRECT # Grammarly
+        # --- 自定义 ---
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
@@ -301,7 +291,7 @@ parsers: # array
         - RULE-SET,bing,🔍Bing
         - RULE-SET,bilibiliintl,🛀Bilibiliintl
         - RULE-SET,twitter,🦤Twitter
-        - RULE-SET,github,🐈GitHub
+        - RULE-SET,github,🥷PROXY
         - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
@@ -322,6 +312,7 @@ parsers: # array
         - GEOIP,CN,DIRECT
         - RULE-SET,direct,DIRECT
         - RULE-SET,proxy,🥷PROXY
+
         - MATCH,👆SELECT # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“👆SELECT”选择代理或直连。
 
       # 添加规则集
