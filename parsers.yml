@@ -280,7 +280,8 @@ parsers: # array
         # --- 自定义 ---
         - DOMAIN-SUFFIX,edu.cn,DIRECT # 🏫校园网直连
         - DOMAIN,cn.overleaf.com,DIRECT # 国内Overleaf
-        - DOMAIN,deepl.com,DIRECT # DeepL 翻译/改写
+        - DOMAIN-SUFFIX,deepl.com,DIRECT # DeepL 翻译/改写
+        - DOMAIN-SUFFIX,grammarly.com,DIRECT # Grammarly
         # --- 自定义 ---
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
